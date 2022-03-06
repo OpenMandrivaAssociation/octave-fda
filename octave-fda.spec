@@ -14,12 +14,8 @@ Url:		https://gitlab.com/kakila/%{octpkg}/
 BuildArch:	noarch
 
 BuildRequires:	octave-devel >= 4.4.0
-BuildRequires:	octave-io >= 2.4.11
-BuildRequires:	octave-statistics >= 1.4.0
 
 Requires:	octave(api) = %{octave_api}
-Requires:	octave-io >= 2.4.11
-Requires:	octave-statistics >= 1.4.0
 
 Requires(post): octave
 Requires(postun): octave
