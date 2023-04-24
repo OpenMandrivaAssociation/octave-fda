@@ -4,26 +4,28 @@
 %define commit 99f733cfa284fc0fdf911e7da97269197c4dec94
 
 Summary:	Functional data analysis extension for Octave
-Name:		octave-%{octpkg}
+Name:		octave-fda
 Version:	1.0.0
-Release:	1
-Source0:	https://gitlab.com/kakila/fda/-/archive/%{commit}/fda-%{commit}.tar.gz
+Release:	2
 License:	GPLv3+
 Group:		Sciences/Mathematics
-Url:		https://gitlab.com/kakila/%{octpkg}/
-BuildArch:	noarch
+#Url:		https://packages.octave.org/fda/
+Url:		https://gitlab.com/kakila/fda
+Source0:	https://gitlab.com/kakila/fda/-/archive/%{commit}/fda-%{commit}.tar.gz
 
-BuildRequires:	octave-devel >= 4.4.0
+BuildRequires:  octave-devel >= 4.2.0
 
 Requires:	octave(api) = %{octave_api}
 
 Requires(post): octave
 Requires(postun): octave
 
+BuildArch:	noarch
+
 %description
 These functions were developed to support functional data analysis as
 described in Ramsay, J. O. and Silverman, B. W. (2005) Functional Data
-Analysis. New York: Springer. 
+Analysis. New York: Springer.
 
 %files
 %license COPYING
@@ -35,9 +37,6 @@ Analysis. New York: Springer.
 
 %prep
 %autosetup -p1 -n %{octpkg}-%{commit}
-
-# remove backup files
-#find . -name \*~ -delete
 
 %build
 %octave_pkg_build
